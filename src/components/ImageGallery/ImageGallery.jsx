@@ -3,7 +3,7 @@ import { Loader } from '../Loader/Loader';
 import { getImage } from 'api/getDataImage';
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 import { Button } from 'components/Button';
-import { NotFound } from 'components/NotFound';
+// import { NotFound } from 'components/NotFound';
 import PropTypes from 'prop-types';
 
 import css from './ImageGallery.module.css';
@@ -77,7 +77,7 @@ export class ImageGallery extends Component {
             })}
           </ul>
         )}
-        {images.length === 0 && <NotFound />}
+        {/* {images.length === 0 && <NotFound />} */}
         {images.length >= 12 && <Button onClick={this.handleLoadMore} />}
       </>
     );
