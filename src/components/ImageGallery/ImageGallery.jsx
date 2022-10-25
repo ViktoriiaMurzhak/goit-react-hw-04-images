@@ -19,7 +19,7 @@ export class ImageGallery extends Component {
   state = {
     page: 1,
     images: [],
-    status: Status.LOADING,
+    status: Status.INIT,
   };
 
   async componentDidMount() {
