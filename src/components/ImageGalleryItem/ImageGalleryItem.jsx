@@ -1,8 +1,16 @@
 import css from './ImageGalleryItem.module.css';
-export const ImageGalleryItem = ({ key, url }) => {
+import PropTypes from 'prop-types';
+
+export const ImageGalleryItem = ({ url, onClick, bigImage }) => {
   return (
-    <li key={key} className={css.ImageGalleryItem}>
-      <img className={css.ImageGalleryItemImage} src={url} alt="lalala" />
+    <li onClick={() => onClick(bigImage)} className={css.ImageGalleryItem}>
+      <img className={css.ImageGalleryItemImage} src={url} alt="" />
     </li>
   );
+};
+
+ImageGalleryItem.propTypes = {
+  url: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  bigImage: PropTypes.string.isRequired,
 };

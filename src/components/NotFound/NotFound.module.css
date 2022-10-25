@@ -1,0 +1,12 @@
+.Sorry {
+  display: block;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.SorryText {
+  display: block;
+  margin: 15px auto;
+  font-size: 26px;
+  font-weight: 900;
+}

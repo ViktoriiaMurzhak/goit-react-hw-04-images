@@ -1,26 +1,26 @@
 import { Component } from 'react';
 import css from './Searchbar.module.css';
 import { FiSearch } from 'react-icons/fi';
+import { PropTypes } from 'prop-types';
 
 export class Searchbar extends Component {
   state = {
     value: '',
   };
 
-  handleChange = e => {
-    const { value } = e.target;
-    this.setState({ value });
+  hanleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.value);
   };
 
-  handleSubmit = e => {
-    console.log('this.state.value', this.state.value);
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   render() {
-    const { value } = this.state;
     return (
       <header className={css.Searchbar}>
-        <form className={css.SearchForm} onSubmit={this.handleSubmit}>
+        <form className={css.SearchForm} onSubmit={this.hanleSubmit}>
           <button type="submit" className={css.SearchFormButton}>
             <span className={css.SearchFormButtonLabel}>
               <FiSearch />
@@ -30,9 +30,10 @@ export class Searchbar extends Component {
           <input
             className={css.SearchFormInput}
             type="text"
+            name="value"
             autoComplete="off"
             autoFocus
-            value={value}
+            value={this.state.value}
             onChange={this.handleChange}
             placeholder="Search images and photos"
           />
@@ -41,3 +42,7 @@ export class Searchbar extends Component {
     );
   }
 }
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
